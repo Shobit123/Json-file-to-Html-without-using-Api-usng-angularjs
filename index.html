@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>show json data in html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+    var myapp=angular.module("myApp",[]);
+    myapp.controller("jsondata",function($scope){
+        $scope.students =
+        [
+            {"stdID":"1","FirstName":"shobit", "LastName":"singh","Age":"25"},
+            {"stdID":"2","FirstName":"keerthi", "LastName":"kkk","Age":"25"},
+            {"stdID":"3","FirstName":"Mythree", "LastName":"mytree","Age":"25"},
+            {"stdID":"6","FirstName":"Anand", "LastName":"mytree","Age":"20"},
+            {"stdID":"4","FirstName":"pranay","LastName":"raju","Age":"25"},
+            {"stdID":"5","FirstName":"Narendra", "LastName":"raju","Age":"25"}
+       ]
+        });
+                </script>
+
+</head>
+
+<body>
+    <center>
+        <div ng-app="myApp" ng-controller="jsondata">
+            <h1>show JSOn data in Html</h1>
+            <hr/>
+            <table border="1">
+                <caption>
+                    <h3>Student table</h3>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>stdID</th>
+                        <th>Firstname</th>
+                        <th>LastName</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in students | orderBy:'FirstName'">
+                    <td>{{x.stdID}}</td>
+                    <td>{{x.FirstName}}</td>
+                    <td>{{x.LastName}}</td>
+                    <td>{{x.Age}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </center>
+    
+</body>
+</html>
